@@ -26,4 +26,10 @@
     <Exec Command="%windir%\System32\cmd.exe /c $(SolutionDir)\CopyPlugin.bat $(SolutionDir) $(TargetDir) $(ProjectName) $(ConfigurationName)" />
   </Target>
 
+  <ItemGroup>
+    <Reference Update="System.Drawing">
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
 </Project>
