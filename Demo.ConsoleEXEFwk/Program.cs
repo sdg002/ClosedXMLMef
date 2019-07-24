@@ -34,6 +34,7 @@ namespace Demo.ConsoleEXEFwk
                 Trace.WriteLine($"Going to execute plugin:{lazyPlugin.Metadata["name"]}");
                 Demo.Contracts.IPlugin iPlugin = lazyPlugin.Value;
                 iPlugin.DoWork(dirExe);
+                DumpAllAssemblies();
                 Trace.WriteLine("Completed without errors");
             }
             catch (Exception ex)
@@ -50,6 +51,16 @@ namespace Demo.ConsoleEXEFwk
 
 
         }
+        public static void DumpAllAssemblies()
+        {
+            System.Reflection.Assembly[] assms = System.AppDomain.CurrentDomain.GetAssemblies();
+            foreach (var assm in assms)
+            {
+                if (assm.IsDynamic) continue;
+                Console.WriteLine($"{assm.Location}");
+            }
+        }
+
     }
 
 }

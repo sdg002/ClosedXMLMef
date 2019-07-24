@@ -14,6 +14,7 @@ namespace ConsoleEXECore.DirectInvoke
             try
             {
                 DoSomeSimpleExcel();
+                DumpAllAssemblies();
             }
             catch (Exception ex)
             {
@@ -38,6 +39,7 @@ namespace ConsoleEXECore.DirectInvoke
                 }
                 workbook.SaveAs(file);
             }
+
         }
         public static void WhatIsMyDOTNETRuntime()
         {
@@ -48,6 +50,16 @@ namespace ConsoleEXECore.DirectInvoke
 
 
         }
+        public static void DumpAllAssemblies()
+        {
+            System.Reflection.Assembly[] assms = System.AppDomain.CurrentDomain.GetAssemblies();
+            foreach(var assm in assms)
+            {
+                if (assm.IsDynamic) continue;
+                Console.WriteLine($"{assm.Location}");
+            }
+        }
+        
 
     }
 }
