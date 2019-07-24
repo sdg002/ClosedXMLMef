@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace Demo.ConsoleEXEFwk
             {
                 Trace.Listeners.Add(new System.Diagnostics.ConsoleTraceListener());
                 Trace.WriteLine("Start");
+                WhatIsMyDOTNETRuntime();
                 string dirExe = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
                 string dirPlugins = System.IO.Path.Combine(dirExe, "Plugins");
                 MefHost host = new MefHost(dirPlugins);
@@ -39,5 +41,15 @@ namespace Demo.ConsoleEXEFwk
                 System.Diagnostics.Trace.WriteLine(ex.ToString());
             }
         }
+        public static void WhatIsMyDOTNETRuntime()
+        {
+            //string ver = AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName;
+
+            string ver = Assembly.GetEntryAssembly()?.GetCustomAttribute<System.Runtime.Versioning.TargetFrameworkAttribute>()?.FrameworkName;
+            Console.WriteLine($"NET CORE RUNTIME={ver}");
+
+
+        }
     }
+
 }

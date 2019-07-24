@@ -1,5 +1,7 @@
 ﻿using ClosedXML.Excel;
 using System;
+using System.Reflection;
+using System.Runtime.Versioning;
 
 namespace ConsoleEXECore.DirectInvoke
 {
@@ -8,6 +10,7 @@ namespace ConsoleEXECore.DirectInvoke
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            WhatIsMyDOTNETRuntime();
             try
             {
                 DoSomeSimpleExcel();
@@ -35,6 +38,15 @@ namespace ConsoleEXECore.DirectInvoke
                 }
                 workbook.SaveAs(file);
             }
+        }
+        public static void WhatIsMyDOTNETRuntime()
+        {
+            //string ver = AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName;
+
+            string ver = Assembly.GetEntryAssembly()?.GetCustomAttribute<TargetFrameworkAttribute>()?.FrameworkName;
+            Console.WriteLine($"NET CORE RUNTIME={ver}");
+
+
         }
 
     }
