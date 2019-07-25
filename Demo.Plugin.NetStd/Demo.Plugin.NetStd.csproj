@@ -22,6 +22,17 @@
     <ProjectReference Include="..\Demo.Contracts\Demo.Contracts.csproj" />
   </ItemGroup>
 
+  <!--
+  I was trying to copy over the correct System.Drawing.Common.dll from the Nuget folder
+  The copying worked
+  However! The ClosedXML project had an assembly binding failure during run time. (File not found)
+  My conclusion - The ClosedXML could not match the PublicKeyToken
+  <ItemGroup>
+    <None Include="$(NugetPackageRoot)\system.drawing.common\4.5.1\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>-->
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="%windir%\System32\cmd.exe /c $(SolutionDir)\CopyPlugin.bat $(SolutionDir) $(TargetDir) $(ProjectName) $(ConfigurationName)" />
   </Target>
