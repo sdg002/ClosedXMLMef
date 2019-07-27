@@ -14,13 +14,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{72D1B6CF-4EF5-4CE8-87DA-888BCE096F32}"
 	ProjectSection(SolutionItems) = preProject
 		CopyPlugin.bat = CopyPlugin.bat
+		Readme.txt = Readme.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.ConsoleEXECore", "Demo.ConsoleEXECore\Demo.ConsoleEXECore.csproj", "{5072EBD3-1F6A-4422-BBF4-02DDA07ADCE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleEXECore.DirectInvoke", "ConsoleEXECore.DirectInvoke\ConsoleEXECore.DirectInvoke.csproj", "{9AB96C0C-DCF2-4A6D-B9A5-9F6A89964285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Plugin.NetCore", "Demo.Plugin.NetCore\Demo.Plugin.NetCore.csproj", "{9BD4C33B-2446-42DB-B997-4AE255B26E4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Plugin.NetCore", "Demo.Plugin.NetCore\Demo.Plugin.NetCore.csproj", "{9BD4C33B-2446-42DB-B997-4AE255B26E4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
